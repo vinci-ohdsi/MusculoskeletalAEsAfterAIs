@@ -1,0 +1,16 @@
+* installing *source* package 'PLEFinal' ...
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+Warning message:
+package 'DatabaseConnector' was built under R version 4.1.2 
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+Warning: package 'DatabaseConnector' was built under R version 4.1.2
+** testing if installed package can be loaded from final location
+Warning: package 'DatabaseConnector' was built under R version 4.1.2
+** testing if installed package keeps a record of temporary installation path
+* DONE (PLEFinal)

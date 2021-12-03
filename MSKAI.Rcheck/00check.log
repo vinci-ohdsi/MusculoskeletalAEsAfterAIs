@@ -1,0 +1,86 @@
+* using log directory 'C:/Users/pateb11/Documents-offline/MusculoskeletalAEsAfterAIs/MSKAI.Rcheck'
+* using R version 4.1.1 (2021-08-10)
+* using platform: x86_64-w64-mingw32 (64-bit)
+* using session charset: ISO8859-1
+* using options '--no-manual --as-cran'
+* checking for file 'MSKAI/DESCRIPTION' ... OK
+* checking extension type ... Package
+* this is package 'MSKAI' version '0.0.1'
+* checking package namespace information ... OK
+* checking package dependencies ... NOTE
+Packages suggested but not available for checking:
+  'rmarkdown', 'OhdsiRTools'
+* checking if this is a source package ... OK
+* checking if there is a namespace ... OK
+* checking for executable files ... OK
+* checking for hidden files and directories ... OK
+* checking for portable file names ... WARNING
+Found the following files with non-portable file names:
+  inst/cohorts/[MSK_AI] target_ai.json
+  inst/cohorts/[MSK_AI] target_ai_drugduration.json
+  inst/cohorts/[MSK_AI] target_ai_nonsteroidal.json
+  inst/cohorts/[MSK_AI] target_ai_nonsteroidal_drugduration.json
+  inst/cohorts/[MSK_AI] target_ai_steroidal.json
+  inst/cohorts/[MSK_AI] target_ai_steroidal_drugduration.json
+  inst/sql/sql_server/[MSK_AI] target_ai.sql
+  inst/sql/sql_server/[MSK_AI] target_ai_drugduration.sql
+  inst/sql/sql_server/[MSK_AI] target_ai_nonsteroidal.sql
+  inst/sql/sql_server/[MSK_AI] target_ai_nonsteroidal_drugduration.sql
+  inst/sql/sql_server/[MSK_AI] target_ai_steroidal.sql
+  inst/sql/sql_server/[MSK_AI] target_ai_steroidal_drugduration.sql
+These are not fully portable file names.
+See section 'Package structure' in the 'Writing R Extensions' manual.
+Found the following non-portable file paths:
+  MSKAI/inst/sql/sql_server/[MSK_AI]outcome_tendinopathy_footankle_conditionANDsurg_agesex_nonstandard.sql
+  MSKAI/inst/sql/sql_server/[MSK_AI]outcome_tendinopathy_handwrist_conditionANDsurg_agesex_nonstandard.sql
+  MSKAI/inst/sql/sql_server/[MSK_AI]outcome_tendinopathy_shoulder_conditionANDsurg_agesex_nonstandard.sql
+
+Tarballs are only required to store paths of up to 100 bytes and cannot
+store those of more than 256 bytes, with restrictions including to 100
+bytes for the final component.
+See section 'Package structure' in the 'Writing R Extensions' manual.
+* checking serialization versions ... OK
+* checking whether package 'MSKAI' can be installed ... WARNING
+Found the following significant warnings:
+  Warning: package 'DatabaseConnector' was built under R version 4.1.2
+See 'C:/Users/pateb11/Documents-offline/MusculoskeletalAEsAfterAIs/MSKAI.Rcheck/00install.out' for details.
+* checking installed package size ... OK
+* checking package directory ... OK
+* checking for future file timestamps ... OK
+* checking DESCRIPTION meta-information ... OK
+* checking top-level files ... OK
+* checking for left-over files ... OK
+* checking index information ... OK
+* checking package subdirectories ... OK
+* checking R files for non-ASCII characters ... OK
+* checking R files for syntax errors ... OK
+* checking whether the package can be loaded ... OK
+* checking whether the package can be loaded with stated dependencies ... OK
+* checking whether the package can be unloaded cleanly ... OK
+* checking whether the namespace can be loaded with stated dependencies ... OK
+* checking whether the namespace can be unloaded cleanly ... OK
+* checking loading without being on the library search path ... OK
+* checking dependencies in R code ... WARNING
+'::' or ':::' imports not declared from:
+  'ParallelLogger' 'SqlRender' 'readr'
+Package in Depends field not imported from: 'DatabaseConnector'
+  These packages need to be imported from (in the NAMESPACE file)
+  for when this namespace is loaded but not attached.
+* checking S3 generic/method consistency ... OK
+* checking replacement functions ... OK
+* checking foreign function calls ... OK
+* checking R code for possible problems ... OK
+* checking Rd files ... OK
+* checking Rd metadata ... OK
+* checking Rd line widths ... OK
+* checking Rd cross-references ... OK
+* checking for missing documentation entries ... OK
+* checking for code/documentation mismatches ... OK
+* checking Rd \usage sections ... OK
+* checking Rd contents ... OK
+* checking for unstated dependencies in examples ... OK
+* checking examples ... NONE
+* checking for non-standard things in the check directory ... OK
+* checking for detritus in the temp directory ... OK
+* DONE
+Status: 3 WARNINGs, 1 NOTE
