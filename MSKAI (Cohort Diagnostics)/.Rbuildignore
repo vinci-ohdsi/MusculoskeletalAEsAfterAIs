@@ -3,7 +3,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 extras
-^\.Rprofile$
 documents
 readme.md
 studyReadme.md
