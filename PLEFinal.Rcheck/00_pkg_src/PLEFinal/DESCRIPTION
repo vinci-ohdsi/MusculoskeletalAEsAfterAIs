@@ -16,6 +16,7 @@ Remotes: ohdsi/FeatureExtraction, ohdsi/CohortMethod,
         ohdsi/MethodEvaluation, ohdsi/OhdsiSharing
 License: Apache License 2.0
 VignetteBuilder: knitr
+LazyData: TRUE
 RoxygenNote: 7.1.2
 NeedsCompilation: no
-Packaged: 2021-12-03 21:16:28 UTC; pateb11
+Packaged: 2021-12-20 19:12:56 UTC; simonk

@@ -1,5 +1,5 @@
-* using log directory 'C:/Users/pateb11/Documents-offline/MusculoskeletalAEsAfterAIs/PLEFinal.Rcheck'
-* using R version 4.1.1 (2021-08-10)
+* using log directory 'C:/Users/simonk/Documents - Offline/MusculoskeletalAEsAfterAIs/PLEFinal.Rcheck'
+* using R version 4.0.1 (2020-06-06)
 * using platform: x86_64-w64-mingw32 (64-bit)
 * using session charset: ISO8859-1
 * using options '--no-manual --as-cran'
@@ -15,8 +15,8 @@
 * checking for portable file names ... OK
 * checking whether package 'PLEFinal' can be installed ... WARNING
 Found the following significant warnings:
-  Warning: package 'DatabaseConnector' was built under R version 4.1.2
-See 'C:/Users/pateb11/Documents-offline/MusculoskeletalAEsAfterAIs/PLEFinal.Rcheck/00install.out' for details.
+  Warning: package 'DatabaseConnector' was built under R version 4.0.5
+See 'C:/Users/simonk/Documents - Offline/MusculoskeletalAEsAfterAIs/PLEFinal.Rcheck/00install.out' for details.
 * checking installed package size ... NOTE
   installed size is  5.7Mb
   sub-directories of 1Mb or more:
