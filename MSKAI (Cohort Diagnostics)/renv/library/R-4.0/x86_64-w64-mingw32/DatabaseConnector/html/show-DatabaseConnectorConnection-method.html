@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Show an Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for show,DatabaseConnectorConnection-method {DatabaseConnector}"><tr><td>show,DatabaseConnectorConnection-method {DatabaseConnector}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Show an Object</h2>
+
+<h3>Description</h3>
+
+<p>Display the object, by printing, plotting or whatever suits its
+class.  This function exists to be specialized by methods.  The
+default method calls <code><a href="../../methods/html/showDefault.html">showDefault</a></code>.
+</p>
+<p>Formal methods for <code>show</code> will
+usually be invoked for automatic printing (see the details).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+## S4 method for signature 'DatabaseConnectorConnection'
+show(object)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>object</code></td>
+<td>
+<p>Any R object</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Objects from an S4 class (a class defined by a call to
+<code><a href="../../methods/html/setClass.html">setClass</a></code>) will be displayed automatically is if by a
+call to <code>show</code>.  S4 objects that occur as attributes of S3
+objects will also be displayed in this form; conversely, S3 objects
+encountered as slots in S4 objects will be printed using the S3
+convention, as if by a call to <code><a href="../../base/html/print.html">print</a></code>.
+</p>
+<p>Methods defined for <code>show</code> will only be inherited  by simple
+inheritance, since otherwise the method would not receive the
+complete, original object, with misleading results.  See the
+<code>simpleInheritanceOnly</code> argument to <code><a href="../../methods/html/setGeneric.html">setGeneric</a></code> and
+the discussion in <code><a href="../../methods/html/setIs.html">setIs</a></code> for the general concept.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>show</code> returns an invisible <code>NULL</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../methods/html/showMethods.html">showMethods</a></code> prints all the methods for one or more
+functions.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>DatabaseConnector</em> version 5.0.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

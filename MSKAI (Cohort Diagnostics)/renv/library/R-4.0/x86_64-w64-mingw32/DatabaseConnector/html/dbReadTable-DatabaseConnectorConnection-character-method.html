@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Copy data frames from database tables</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for dbReadTable,DatabaseConnectorConnection,character-method {DatabaseConnector}"><tr><td>dbReadTable,DatabaseConnectorConnection,character-method {DatabaseConnector}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Copy data frames from database tables</h2>
+
+<h3>Description</h3>
+
+<p>Reads a database table to a data frame, optionally converting
+a column to row names and converting the column names to valid
+R identifiers.
+</p>
+
+
+
+<h3>Usage</h3>
+
+<pre>
+## S4 method for signature 'DatabaseConnectorConnection,character'
+dbReadTable(
+  conn,
+  name,
+  database = NULL,
+  schema = NULL,
+  oracleTempSchema = NULL,
+  tempEmulationSchema = getOption("sqlRenderTempEmulationSchema"),
+  ...
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>conn</code></td>
+<td>
+<p>A <a href="../../DBI/html/DBIConnection-class.html">DBIConnection</a> object, as returned by
+<code><a href="../../DBI/html/dbConnect.html">dbConnect()</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>A character string specifying the unquoted DBMS table name,
+or the result of a call to <code><a href="../../DBI/html/dbQuoteIdentifier.html">dbQuoteIdentifier()</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>database</code></td>
+<td>
+<p>Name of the database.</p>
+</td></tr>
+<tr valign="top"><td><code>schema</code></td>
+<td>
+<p>Name of the schema.</p>
+</td></tr>
+<tr valign="top"><td><code>oracleTempSchema</code></td>
+<td>
+<p>DEPRECATED: use <code>tempEmulationSchema</code> instead.</p>
+</td></tr>
+<tr valign="top"><td><code>tempEmulationSchema</code></td>
+<td>
+<p>Some database platforms like Oracle and Impala do not truly support
+temp tables. To emulate temp tables, provide a schema with write
+privileges where temp tables can be created.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Other parameters passed on to methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p><code>dbReadTable()</code> returns a data frame that contains the complete data
+from the remote table, effectively the result of calling <code><a href="../../DBI/html/dbGetQuery.html">dbGetQuery()</a></code>
+with <code style="white-space: pre;">SELECT * FROM &lt;name&gt;</code>.
+An error is raised if the table does not exist.
+An empty table is returned as a data frame with zero rows.
+</p>
+<p>The presence of <a href="../../DBI/html/rownames.html">rownames</a> depends on the <code>row.names</code> argument,
+see <code><a href="../../DBI/html/rownames.html">sqlColumnToRownames()</a></code> for details:
+</p>
+
+<ul>
+<li><p> If <code>FALSE</code> or <code>NULL</code>, the returned data frame doesn't have row names.
+</p>
+</li>
+<li><p> If <code>TRUE</code>, a column named &quot;row_names&quot; is converted to row names,
+an error is raised if no such column exists.
+</p>
+</li>
+<li><p> If <code>NA</code>, a column named &quot;row_names&quot; is converted to row names if it exists,
+otherwise no translation occurs.
+</p>
+</li>
+<li><p> If a string, this specifies the name of the column in the remote table
+that contains the row names,
+an error is raised if no such column exists.
+</p>
+</li></ul>
+
+<p>The default is <code>row.names = FALSE</code>.
+</p>
+<p>If the database supports identifiers with special characters,
+the columns in the returned data frame are converted to valid R
+identifiers
+if the <code>check.names</code> argument is <code>TRUE</code>,
+If <code>check.names = FALSE</code>, the returned table has non-syntactic column names without quotes.
+</p>
+<p>An error is raised when calling this method for a closed
+or invalid connection.
+An error is raised
+if <code>name</code> cannot be processed with <code><a href="../../DBI/html/dbQuoteIdentifier.html">dbQuoteIdentifier()</a></code>
+or if this results in a non-scalar.
+Unsupported values for <code>row.names</code> and <code>check.names</code>
+(non-scalars,
+unsupported data types,
+<code>NA</code> for <code>check.names</code>)
+also raise an error.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>Other DBIConnection generics: 
+<code><a href="../../DBI/html/DBIConnection-class.html">DBIConnection-class</a></code>,
+<code><a href="../../DBI/html/dbAppendTable.html">dbAppendTable</a>()</code>,
+<code><a href="../../DBI/html/dbCreateTable.html">dbCreateTable</a>()</code>,
+<code><a href="../../DBI/html/dbDataType.html">dbDataType</a>()</code>,
+<code><a href="../../DBI/html/dbDisconnect.html">dbDisconnect</a>()</code>,
+<code><a href="../../DBI/html/dbExecute.html">dbExecute</a>()</code>,
+<code><a href="../../DBI/html/dbExistsTable.html">dbExistsTable</a>()</code>,
+<code><a href="../../DBI/html/dbGetException.html">dbGetException</a>()</code>,
+<code><a href="../../DBI/html/dbGetInfo.html">dbGetInfo</a>()</code>,
+<code><a href="../../DBI/html/dbGetQuery.html">dbGetQuery</a>()</code>,
+<code><a href="../../DBI/html/dbIsReadOnly.html">dbIsReadOnly</a>()</code>,
+<code><a href="../../DBI/html/dbIsValid.html">dbIsValid</a>()</code>,
+<code><a href="../../DBI/html/dbListFields.html">dbListFields</a>()</code>,
+<code><a href="../../DBI/html/dbListObjects.html">dbListObjects</a>()</code>,
+<code><a href="../../DBI/html/dbListResults.html">dbListResults</a>()</code>,
+<code><a href="../../DBI/html/dbListTables.html">dbListTables</a>()</code>,
+<code><a href="../../DBI/html/dbRemoveTable.html">dbRemoveTable</a>()</code>,
+<code><a href="../../DBI/html/dbSendQuery.html">dbSendQuery</a>()</code>,
+<code><a href="../../DBI/html/dbSendStatement.html">dbSendStatement</a>()</code>,
+<code><a href="../../DBI/html/dbWriteTable.html">dbWriteTable</a>()</code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>DatabaseConnector</em> version 5.0.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Create an Andromeda object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for andromeda {Andromeda}"><tr><td>andromeda {Andromeda}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Create an Andromeda object</h2>
+
+<h3>Description</h3>
+
+<p>By default the <code>Andromeda</code> object is created in the systems temporary file location. You can override
+this by specifying a folder using <code>options(andromedaTempFolder = "c:/andromedaTemp")</code>, where
+<code>"c:/andromedaTemp"</code> is the folder to create the Andromeda objects in.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+andromeda(...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Named objects. See details for what objects are valid. If no objects are provided, an
+empty Andromeda is returned.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Valid objects are data frames, <code>Andromeda</code> tables, or any other <code><a href="../../dplyr/html/dplyr-package.html">dplyr</a></code> table.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Returns an <code><a href="Andromeda-class.html">Andromeda</a></code> object.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+andr &lt;- andromeda(cars = cars, iris = iris)
+
+names(andr)
+# [1] 'cars' 'iris'
+
+andr$cars %&gt;% filter(speed &gt; 10) %&gt;% collect()
+# # A tibble: 41 x 2 
+# speed dist 
+# &lt;dbl&gt; &lt;dbl&gt; 
+# 1 11 17 
+# ...
+
+close(andr)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Andromeda</em> version 0.4.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

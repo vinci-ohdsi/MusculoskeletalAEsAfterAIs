@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Completion status</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for dbHasCompleted,DatabaseConnectorResult-method {DatabaseConnector}"><tr><td>dbHasCompleted,DatabaseConnectorResult-method {DatabaseConnector}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Completion status</h2>
+
+<h3>Description</h3>
+
+<p>This method returns if the operation has completed.
+A <code>SELECT</code> query is completed if all rows have been fetched.
+A data manipulation statement is always completed.
+</p>
+
+
+
+<h3>Usage</h3>
+
+<pre>
+## S4 method for signature 'DatabaseConnectorResult'
+dbHasCompleted(res, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>res</code></td>
+<td>
+<p>An object inheriting from <a href="../../DBI/html/DBIResult-class.html">DBIResult</a>.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Other arguments passed on to methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p><code>dbHasCompleted()</code> returns a logical scalar.
+For a query initiated by <code><a href="../../DBI/html/dbSendQuery.html">dbSendQuery()</a></code> with non-empty result set,
+<code>dbHasCompleted()</code> returns <code>FALSE</code> initially
+and <code>TRUE</code> after calling <code><a href="../../DBI/html/dbFetch.html">dbFetch()</a></code> without limit.
+For a query initiated by <code><a href="../../DBI/html/dbSendStatement.html">dbSendStatement()</a></code>,
+<code>dbHasCompleted()</code> always returns <code>TRUE</code>.
+Attempting to query completion status for a result set cleared with
+<code><a href="../../DBI/html/dbClearResult.html">dbClearResult()</a></code> gives an error.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>Other DBIResult generics: 
+<code><a href="../../DBI/html/DBIResult-class.html">DBIResult-class</a></code>,
+<code><a href="../../DBI/html/dbBind.html">dbBind</a>()</code>,
+<code><a href="../../DBI/html/dbClearResult.html">dbClearResult</a>()</code>,
+<code><a href="../../DBI/html/dbColumnInfo.html">dbColumnInfo</a>()</code>,
+<code><a href="../../DBI/html/dbFetch.html">dbFetch</a>()</code>,
+<code><a href="../../DBI/html/dbGetInfo.html">dbGetInfo</a>()</code>,
+<code><a href="../../DBI/html/dbGetRowCount.html">dbGetRowCount</a>()</code>,
+<code><a href="../../DBI/html/dbGetRowsAffected.html">dbGetRowsAffected</a>()</code>,
+<code><a href="../../DBI/html/dbGetStatement.html">dbGetStatement</a>()</code>,
+<code><a href="../../DBI/html/dbIsReadOnly.html">dbIsReadOnly</a>()</code>,
+<code><a href="../../DBI/html/dbIsValid.html">dbIsValid</a>()</code>,
+<code><a href="../../DBI/html/dbQuoteIdentifier.html">dbQuoteIdentifier</a>()</code>,
+<code><a href="../../DBI/html/dbQuoteLiteral.html">dbQuoteLiteral</a>()</code>,
+<code><a href="../../DBI/html/dbQuoteString.html">dbQuoteString</a>()</code>,
+<code><a href="../../DBI/html/dbUnquoteIdentifier.html">dbUnquoteIdentifier</a>()</code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>DatabaseConnector</em> version 5.0.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

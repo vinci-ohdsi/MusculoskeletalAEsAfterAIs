@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Append to an Andromeda table</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for appendToTable {Andromeda}"><tr><td>appendToTable {Andromeda}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Append to an Andromeda table</h2>
+
+<h3>Description</h3>
+
+<p>Append a data frame, Andromeda table, or result of a query on an <code><a href="Andromeda-class.html">Andromeda</a></code> table to an existing
+<code><a href="Andromeda-class.html">Andromeda</a></code> table.
+</p>
+<p>If data from another <code><a href="Andromeda-class.html">Andromeda</a></code> is appended, a batch-wise copy process is used, which will be slower
+than when appending data from within the same <code><a href="Andromeda-class.html">Andromeda</a></code> object.
+</p>
+<p><strong>Important</strong>: columns are appended based on column name, not on column order. The column names should
+therefore be identical (but not necessarily in the same order).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+appendToTable(tbl, data)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>tbl</code></td>
+<td>
+<p>An <code><a href="Andromeda-class.html">Andromeda</a></code> table. This must be a base table (i.e. it cannot be a query result).</p>
+</td></tr>
+<tr valign="top"><td><code>data</code></td>
+<td>
+<p>The data to append. This can be either a data.frame or another Andromeda table.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>Returns no value. Executed for the side-effect of appending the data to the table.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+andr &lt;- andromeda(cars = cars)
+nrow(andr$cars)
+# [1] 50
+
+appendToTable(andr$cars, cars)
+nrow(andr$cars)
+# [1] 100
+
+appendToTable(andr$cars, andr$cars %&gt;% filter(speed &gt; 10))
+nrow(andr$cars)
+# [1] 182
+
+close(andr)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Andromeda</em> version 0.4.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

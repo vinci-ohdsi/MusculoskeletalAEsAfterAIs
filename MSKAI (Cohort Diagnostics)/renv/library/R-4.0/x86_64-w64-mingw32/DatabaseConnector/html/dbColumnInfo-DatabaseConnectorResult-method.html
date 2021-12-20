@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Information about result types</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for dbColumnInfo,DatabaseConnectorResult-method {DatabaseConnector}"><tr><td>dbColumnInfo,DatabaseConnectorResult-method {DatabaseConnector}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Information about result types</h2>
+
+<h3>Description</h3>
+
+<p>Produces a data.frame that describes the output of a query. The data.frame
+should have as many rows as there are output fields in the result set, and
+each column in the data.frame describes an aspect of the result set
+field (field name, type, etc.)
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+## S4 method for signature 'DatabaseConnectorResult'
+dbColumnInfo(res, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>res</code></td>
+<td>
+<p>An object inheriting from <a href="../../DBI/html/DBIResult-class.html">DBIResult</a>.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Other arguments passed on to methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p><code>dbColumnInfo()</code>
+returns a data frame
+with at least two columns <code>"name"</code> and <code>"type"</code> (in that order)
+(and optional columns that start with a dot).
+The <code>"name"</code> and <code>"type"</code> columns contain the names and types
+of the R columns of the data frame that is returned from <code><a href="../../DBI/html/dbFetch.html">dbFetch()</a></code>.
+The <code>"type"</code> column is of type <code>character</code> and only for information.
+Do not compute on the <code>"type"</code> column, instead use <code>dbFetch(res, n = 0)</code>
+to create a zero-row data frame initialized with the correct data types.
+</p>
+<p>An attempt to query columns for a closed result set raises an error.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>Other DBIResult generics: 
+<code><a href="../../DBI/html/DBIResult-class.html">DBIResult-class</a></code>,
+<code><a href="../../DBI/html/dbBind.html">dbBind</a>()</code>,
+<code><a href="../../DBI/html/dbClearResult.html">dbClearResult</a>()</code>,
+<code><a href="../../DBI/html/dbFetch.html">dbFetch</a>()</code>,
+<code><a href="../../DBI/html/dbGetInfo.html">dbGetInfo</a>()</code>,
+<code><a href="../../DBI/html/dbGetRowCount.html">dbGetRowCount</a>()</code>,
+<code><a href="../../DBI/html/dbGetRowsAffected.html">dbGetRowsAffected</a>()</code>,
+<code><a href="../../DBI/html/dbGetStatement.html">dbGetStatement</a>()</code>,
+<code><a href="../../DBI/html/dbHasCompleted.html">dbHasCompleted</a>()</code>,
+<code><a href="../../DBI/html/dbIsReadOnly.html">dbIsReadOnly</a>()</code>,
+<code><a href="../../DBI/html/dbIsValid.html">dbIsValid</a>()</code>,
+<code><a href="../../DBI/html/dbQuoteIdentifier.html">dbQuoteIdentifier</a>()</code>,
+<code><a href="../../DBI/html/dbQuoteLiteral.html">dbQuoteLiteral</a>()</code>,
+<code><a href="../../DBI/html/dbQuoteString.html">dbQuoteString</a>()</code>,
+<code><a href="../../DBI/html/dbUnquoteIdentifier.html">dbUnquoteIdentifier</a>()</code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>DatabaseConnector</em> version 5.0.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

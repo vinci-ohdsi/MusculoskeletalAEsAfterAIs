@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Get the available disk space in Andromeda temp</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for getAndromedaTempDiskSpace {Andromeda}"><tr><td>getAndromedaTempDiskSpace {Andromeda}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Get the available disk space in Andromeda temp</h2>
+
+<h3>Description</h3>
+
+<p>Attempts to determine how much disk space is still available in the Andromeda temp folder.
+This function uses Java, so will only work if the <code>rJava</code> package is installed.
+</p>
+<p>By default the Andromeda temp folder is located in the system temp space, but the location
+can be altered using <code>options(andromedaTempFolder = "c:/andromedaTemp")</code>, where
+<code>"c:/andromedaTemp"</code> is the folder to create the Andromeda objects in.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+getAndromedaTempDiskSpace(andromeda = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>andromeda</code></td>
+<td>
+<p>Optional: provide an <a href="Andromeda-class.html">Andromeda</a> object for which to get the available disk
+space. Normally all <a href="Andromeda-class.html">Andromeda</a> objects use the same temp folder, but the user
+could have altered it.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>The number of bytes of available disk space in the Andromeda temp folder. Returns NA
+if unable to determine the amount of available disk space, for example because <code>rJava</code>
+is not installed, or because the user doesn't have the rights to query the available
+disk space.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+# Get the number of available gigabytes:
+getAndromedaTempDiskSpace() / 1024^3
+#123.456
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Andromeda</em> version 0.4.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

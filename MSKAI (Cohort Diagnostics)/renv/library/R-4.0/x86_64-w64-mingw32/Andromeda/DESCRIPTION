@@ -1,0 +1,38 @@
+Package: Andromeda
+Type: Package
+Title: Asynchronous Disk-Based Representation of Massive Data
+Version: 0.4.0
+Date: 2020-10-30
+Authors@R: c(
+ person("Martijn", "Schuemie", , "schuemie@ohdsi.org", role = c("aut", "cre")),
+ person("Marc A.", "Suchard", , "msuchard@ucla.edu", role = c("aut")),
+ person("Observational Health Data Science and Informatics", role = c("cph"))
+ )
+Maintainer: Martijn Schuemie <schuemie@ohdsi.org>
+Description: Storing very large data objects on a local drive, while still making it possible to manipulate the data in an efficient manner.
+License: Apache License 2.0
+VignetteBuilder: knitr
+URL: https://ohdsi.github.io/Andromeda/, https://github.com/OHDSI/Andromeda
+BugReports: https://github.com/OHDSI/Andromeda/issues
+Depends: dplyr
+Imports: RSQLite, DBI, zip, methods, dbplyr, tidyselect, cli, rlang, pillar
+Suggests: testthat, stringr, knitr, rmarkdown, tibble, rJava
+LazyData: false
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Encoding: UTF-8
+Author: Martijn Schuemie [aut, cre],
+ Marc A. Suchard [aut],
+ Observational Health Data Science and Informatics [cph]
+Built: R 4.0.1; ; 2021-12-20 18:19:21 UTC; windows
+RemoteType: github
+RemoteHost: api.github.com
+RemoteUsername: OHDSI
+RemoteRepo: Andromeda
+RemoteRef: v0.4.0
+RemoteSha: bd8666b84faba407bcf24ca81e205431ebaf5e78
+GithubHost: api.github.com
+GithubRepo: Andromeda
+GithubUsername: OHDSI
+GithubRef: v0.4.0
+GithubSHA1: bd8666b84faba407bcf24ca81e205431ebaf5e78

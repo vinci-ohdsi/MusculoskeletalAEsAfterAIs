@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Launch the Diagnostics Explorer Shiny app</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for launchDiagnosticsExplorer {CohortDiagnostics}"><tr><td>launchDiagnosticsExplorer {CohortDiagnostics}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Launch the Diagnostics Explorer Shiny app</h2>
+
+<h3>Description</h3>
+
+<p>Launch the Diagnostics Explorer Shiny app
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+launchDiagnosticsExplorer(
+  dataFolder = "data",
+  connectionDetails = NULL,
+  resultsDatabaseSchema = NULL,
+  vocabularyDatabaseSchema = resultsDatabaseSchema,
+  cohortBaseUrl = "https://atlas.ohdsi.org/#/cohortdefinition/",
+  conceptBaseUrl = "https://athena.ohdsi.org/search-terms/terms/",
+  runOverNetwork = FALSE,
+  port = 80,
+  launch.browser = FALSE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dataFolder</code></td>
+<td>
+<p>A folder where the premerged file is stored. Use
+the <code><a href="preMergeDiagnosticsFiles.html">preMergeDiagnosticsFiles</a></code> function to generate this file.</p>
+</td></tr>
+<tr valign="top"><td><code>connectionDetails</code></td>
+<td>
+<p>An object of type <code>connectionDetails</code> as created using the
+<code><a href="../../DatabaseConnector/html/createConnectionDetails.html">createConnectionDetails</a></code> function in the
+DatabaseConnector package, specifying how to connect to the server where
+the CohortDiagnostics results have been uploaded using the 
+<code><a href="uploadResults.html">uploadResults</a></code> function.</p>
+</td></tr>
+<tr valign="top"><td><code>resultsDatabaseSchema</code></td>
+<td>
+<p>The schema on the database server where the CohortDiagnostics results 
+have been uploaded.</p>
+</td></tr>
+<tr valign="top"><td><code>vocabularyDatabaseSchema</code></td>
+<td>
+<p>The schema on the database server where the vocabulary tables are located.</p>
+</td></tr>
+<tr valign="top"><td><code>cohortBaseUrl</code></td>
+<td>
+<p>The base URL for constructing linkouts to an ATLAS instance, using the 
+webApiCohortId in the cohortsToCreate file. If NULL, no linkouts will be 
+created.</p>
+</td></tr>
+<tr valign="top"><td><code>conceptBaseUrl</code></td>
+<td>
+<p>The base URL for constructing linkouts to an Athena instance, using the
+concept ID.</p>
+</td></tr>
+<tr valign="top"><td><code>runOverNetwork</code></td>
+<td>
+<p>(optional) Do you want the app to run over your network?</p>
+</td></tr>
+<tr valign="top"><td><code>port</code></td>
+<td>
+<p>(optional) Only used if <code>runOverNetwork</code> = TRUE.</p>
+</td></tr>
+<tr valign="top"><td><code>launch.browser</code></td>
+<td>
+<p>Should the app be launched in your default browser, or in a Shiny window.
+Note: copying to clipboard will not work in a Shiny window.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Launches a Shiny app that allows the user to explore the diagnostics
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>CohortDiagnostics</em> version 2.0.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: List field names of a remote table</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for dbListFields,DatabaseConnectorConnection,character-method {DatabaseConnector}"><tr><td>dbListFields,DatabaseConnectorConnection,character-method {DatabaseConnector}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>List field names of a remote table</h2>
+
+<h3>Description</h3>
+
+<p>List field names of a remote table
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+## S4 method for signature 'DatabaseConnectorConnection,character'
+dbListFields(conn, name, database = NULL, schema = NULL, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>conn</code></td>
+<td>
+<p>A <a href="../../DBI/html/DBIConnection-class.html">DBIConnection</a> object, as returned by
+<code><a href="../../DBI/html/dbConnect.html">dbConnect()</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>a character string with the name of the remote table.</p>
+</td></tr>
+<tr valign="top"><td><code>database</code></td>
+<td>
+<p>Name of the database.</p>
+</td></tr>
+<tr valign="top"><td><code>schema</code></td>
+<td>
+<p>Name of the schema.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Other parameters passed on to methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p><code>dbListFields()</code>
+returns a character vector
+that enumerates all fields
+in the table in the correct order.
+This also works for temporary tables if supported by the database.
+The returned names are suitable for quoting with <code>dbQuoteIdentifier()</code>.
+If the table does not exist, an error is raised.
+Invalid types for the <code>name</code> argument
+(e.g., <code>character</code> of length not equal to one,
+or numeric)
+lead to an error.
+An error is also raised when calling this method for a closed
+or invalid connection.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../DBI/html/dbColumnInfo.html">dbColumnInfo()</a></code> to get the type of the fields.
+</p>
+<p>Other DBIConnection generics: 
+<code><a href="../../DBI/html/DBIConnection-class.html">DBIConnection-class</a></code>,
+<code><a href="../../DBI/html/dbAppendTable.html">dbAppendTable</a>()</code>,
+<code><a href="../../DBI/html/dbCreateTable.html">dbCreateTable</a>()</code>,
+<code><a href="../../DBI/html/dbDataType.html">dbDataType</a>()</code>,
+<code><a href="../../DBI/html/dbDisconnect.html">dbDisconnect</a>()</code>,
+<code><a href="../../DBI/html/dbExecute.html">dbExecute</a>()</code>,
+<code><a href="../../DBI/html/dbExistsTable.html">dbExistsTable</a>()</code>,
+<code><a href="../../DBI/html/dbGetException.html">dbGetException</a>()</code>,
+<code><a href="../../DBI/html/dbGetInfo.html">dbGetInfo</a>()</code>,
+<code><a href="../../DBI/html/dbGetQuery.html">dbGetQuery</a>()</code>,
+<code><a href="../../DBI/html/dbIsReadOnly.html">dbIsReadOnly</a>()</code>,
+<code><a href="../../DBI/html/dbIsValid.html">dbIsValid</a>()</code>,
+<code><a href="../../DBI/html/dbListObjects.html">dbListObjects</a>()</code>,
+<code><a href="../../DBI/html/dbListResults.html">dbListResults</a>()</code>,
+<code><a href="../../DBI/html/dbListTables.html">dbListTables</a>()</code>,
+<code><a href="../../DBI/html/dbReadTable.html">dbReadTable</a>()</code>,
+<code><a href="../../DBI/html/dbRemoveTable.html">dbRemoveTable</a>()</code>,
+<code><a href="../../DBI/html/dbSendQuery.html">dbSendQuery</a>()</code>,
+<code><a href="../../DBI/html/dbSendStatement.html">dbSendStatement</a>()</code>,
+<code><a href="../../DBI/html/dbWriteTable.html">dbWriteTable</a>()</code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>DatabaseConnector</em> version 5.0.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

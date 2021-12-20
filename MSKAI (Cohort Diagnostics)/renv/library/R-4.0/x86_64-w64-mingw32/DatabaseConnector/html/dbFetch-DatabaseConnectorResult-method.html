@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Fetch records from a previously executed query</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for dbFetch,DatabaseConnectorResult-method {DatabaseConnector}"><tr><td>dbFetch,DatabaseConnectorResult-method {DatabaseConnector}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Fetch records from a previously executed query</h2>
+
+<h3>Description</h3>
+
+<p>Fetch the next <code>n</code> elements (rows) from the result set and return them
+as a data.frame.
+</p>
+
+
+
+<h3>Usage</h3>
+
+<pre>
+## S4 method for signature 'DatabaseConnectorResult'
+dbFetch(res, n = -1, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>res</code></td>
+<td>
+<p>An object inheriting from <a href="../../DBI/html/DBIResult-class.html">DBIResult</a>, created by
+<code><a href="../../DBI/html/dbSendQuery.html">dbSendQuery()</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>n</code></td>
+<td>
+<p>maximum number of records to retrieve per fetch. Use <code>n = -1</code>
+or <code>n = Inf</code>
+to retrieve all pending records.  Some implementations may recognize other
+special values.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Other arguments passed on to methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>fetch()</code> is provided for compatibility with older DBI clients - for all
+new code you are strongly encouraged to use <code>dbFetch()</code>. The default
+implementation for <code>dbFetch()</code> calls <code>fetch()</code> so that it is compatible with
+existing code. Modern backends should implement for <code>dbFetch()</code> only.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>dbFetch()</code> always returns a <a href="../../base/html/data.frame.html">data.frame</a>
+with as many rows as records were fetched and as many
+columns as fields in the result set,
+even if the result is a single value
+or has one
+or zero rows.
+An attempt to fetch from a closed result set raises an error.
+If the <code>n</code> argument is not an atomic whole number
+greater or equal to -1 or Inf, an error is raised,
+but a subsequent call to <code>dbFetch()</code> with proper <code>n</code> argument succeeds.
+Calling <code>dbFetch()</code> on a result set from a data manipulation query
+created by <code><a href="../../DBI/html/dbSendStatement.html">dbSendStatement()</a></code>
+can be fetched and return an empty data frame, with a warning.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>Close the result set with <code><a href="../../DBI/html/dbClearResult.html">dbClearResult()</a></code> as soon as you
+finish retrieving the records you want.
+</p>
+<p>Other DBIResult generics: 
+<code><a href="../../DBI/html/DBIResult-class.html">DBIResult-class</a></code>,
+<code><a href="../../DBI/html/dbBind.html">dbBind</a>()</code>,
+<code><a href="../../DBI/html/dbClearResult.html">dbClearResult</a>()</code>,
+<code><a href="../../DBI/html/dbColumnInfo.html">dbColumnInfo</a>()</code>,
+<code><a href="../../DBI/html/dbGetInfo.html">dbGetInfo</a>()</code>,
+<code><a href="../../DBI/html/dbGetRowCount.html">dbGetRowCount</a>()</code>,
+<code><a href="../../DBI/html/dbGetRowsAffected.html">dbGetRowsAffected</a>()</code>,
+<code><a href="../../DBI/html/dbGetStatement.html">dbGetStatement</a>()</code>,
+<code><a href="../../DBI/html/dbHasCompleted.html">dbHasCompleted</a>()</code>,
+<code><a href="../../DBI/html/dbIsReadOnly.html">dbIsReadOnly</a>()</code>,
+<code><a href="../../DBI/html/dbIsValid.html">dbIsValid</a>()</code>,
+<code><a href="../../DBI/html/dbQuoteIdentifier.html">dbQuoteIdentifier</a>()</code>,
+<code><a href="../../DBI/html/dbQuoteLiteral.html">dbQuoteLiteral</a>()</code>,
+<code><a href="../../DBI/html/dbQuoteString.html">dbQuoteString</a>()</code>,
+<code><a href="../../DBI/html/dbUnquoteIdentifier.html">dbUnquoteIdentifier</a>()</code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>DatabaseConnector</em> version 5.0.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

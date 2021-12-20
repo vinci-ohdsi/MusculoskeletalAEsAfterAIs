@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Load Andromeda from file</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for loadAndromeda {Andromeda}"><tr><td>loadAndromeda {Andromeda}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Load Andromeda from file</h2>
+
+<h3>Description</h3>
+
+<p>Load Andromeda from file
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+loadAndromeda(fileName)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>fileName</code></td>
+<td>
+<p>The path where the object was saved using <code><a href="saveAndromeda.html">saveAndromeda()</a></code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>An <code><a href="Andromeda-class.html">Andromeda</a></code> object.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="saveAndromeda.html">saveAndromeda()</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+# For this example we create an Andromeda object and save it to
+# a temporary file locationL
+fileName &lt;- tempfile()
+andr &lt;- andromeda(cars = cars)
+saveAndromeda(andr, fileName)
+
+# Using loadAndromeda to load the object back:
+andr &lt;- loadAndromeda(fileName)
+
+# Don't forget to close Andromeda when you are done:
+close(andr)
+
+# Cleaning up the file used in this example:
+unlink(fileName)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Andromeda</em> version 0.4.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

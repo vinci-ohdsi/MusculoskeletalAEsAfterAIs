@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Removes an index from an Andromeda table</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for removeIndex {Andromeda}"><tr><td>removeIndex {Andromeda}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Removes an index from an Andromeda table</h2>
+
+<h3>Description</h3>
+
+<p>Removes an index from an Andromeda table
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+removeIndex(tbl, columnNames = NULL, indexName = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>tbl</code></td>
+<td>
+<p>An <code><a href="Andromeda-class.html">Andromeda</a></code> table (or any other 'DBI' table).</p>
+</td></tr>
+<tr valign="top"><td><code>columnNames</code></td>
+<td>
+<p>A vector of column names (character) on which the index was created. If not
+provided, then the <code>indexName</code> argument must be provided.</p>
+</td></tr>
+<tr valign="top"><td><code>indexName</code></td>
+<td>
+<p>The name of the index. If not provided, the <code>columnNames</code> argument must be
+provided.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Remove an index created using the <code><a href="createIndex.html">createIndex()</a></code> function. Either the index name or the column
+names on which the index was created must be provided.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Invisibly returns the input table.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="createIndex.html">createIndex()</a></code>, <code><a href="listIndices.html">listIndices()</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+andr &lt;- andromeda(cars = cars)
+
+createIndex(andr$cars, "speed")
+
+# Will be faster now that speed is indexed:
+andr$cars %&gt;%
+  filter(speed == 10) %&gt;%
+  collect()
+  
+removeIndex(andr$cars, "speed")
+
+close(andr)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Andromeda</em> version 0.4.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

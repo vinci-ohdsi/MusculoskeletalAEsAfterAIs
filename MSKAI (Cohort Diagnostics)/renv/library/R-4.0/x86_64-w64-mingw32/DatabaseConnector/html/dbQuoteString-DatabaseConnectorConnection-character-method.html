@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Quote literal strings</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for dbQuoteString,DatabaseConnectorConnection,character-method {DatabaseConnector}"><tr><td>dbQuoteString,DatabaseConnectorConnection,character-method {DatabaseConnector}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Quote literal strings</h2>
+
+<h3>Description</h3>
+
+<p>Call this method to generate a string that is suitable for
+use in a query as a string literal, to make sure that you
+generate valid SQL and protect against SQL injection attacks.
+</p>
+
+
+
+<h3>Usage</h3>
+
+<pre>
+## S4 method for signature 'DatabaseConnectorConnection,character'
+dbQuoteString(conn, x, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>conn</code></td>
+<td>
+<p>A <a href="../../DBI/html/DBIConnection-class.html">DBIConnection</a> object, as returned by
+<code><a href="../../DBI/html/dbConnect.html">dbConnect()</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>A character vector to quote as string.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Other arguments passed on to methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p><code>dbQuoteString()</code> returns an object that can be coerced to <a href="../../base/html/character.html">character</a>,
+of the same length as the input.
+For an empty character vector this function returns a length-0 object.
+</p>
+<p>When passing the returned object again to <code>dbQuoteString()</code>
+as <code>x</code>
+argument, it is returned unchanged.
+Passing objects of class <a href="../../DBI/html/SQL.html">SQL</a> should also return them unchanged.
+(For backends it may be most convenient to return <a href="../../DBI/html/SQL.html">SQL</a> objects
+to achieve this behavior, but this is not required.)
+</p>
+
+
+<h3>See Also</h3>
+
+<p>Other DBIResult generics: 
+<code><a href="../../DBI/html/DBIResult-class.html">DBIResult-class</a></code>,
+<code><a href="../../DBI/html/dbBind.html">dbBind</a>()</code>,
+<code><a href="../../DBI/html/dbClearResult.html">dbClearResult</a>()</code>,
+<code><a href="../../DBI/html/dbColumnInfo.html">dbColumnInfo</a>()</code>,
+<code><a href="../../DBI/html/dbFetch.html">dbFetch</a>()</code>,
+<code><a href="../../DBI/html/dbGetInfo.html">dbGetInfo</a>()</code>,
+<code><a href="../../DBI/html/dbGetRowCount.html">dbGetRowCount</a>()</code>,
+<code><a href="../../DBI/html/dbGetRowsAffected.html">dbGetRowsAffected</a>()</code>,
+<code><a href="../../DBI/html/dbGetStatement.html">dbGetStatement</a>()</code>,
+<code><a href="../../DBI/html/dbHasCompleted.html">dbHasCompleted</a>()</code>,
+<code><a href="../../DBI/html/dbIsReadOnly.html">dbIsReadOnly</a>()</code>,
+<code><a href="../../DBI/html/dbIsValid.html">dbIsValid</a>()</code>,
+<code><a href="../../DBI/html/dbQuoteIdentifier.html">dbQuoteIdentifier</a>()</code>,
+<code><a href="../../DBI/html/dbQuoteLiteral.html">dbQuoteLiteral</a>()</code>,
+<code><a href="../../DBI/html/dbUnquoteIdentifier.html">dbUnquoteIdentifier</a>()</code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>DatabaseConnector</em> version 5.0.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

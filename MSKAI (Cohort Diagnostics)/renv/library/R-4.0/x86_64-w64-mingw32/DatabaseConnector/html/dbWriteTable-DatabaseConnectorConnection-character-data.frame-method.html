@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Copy data frames to database tables</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for dbWriteTable,DatabaseConnectorConnection,character,data.frame-method {DatabaseConnector}"><tr><td>dbWriteTable,DatabaseConnectorConnection,character,data.frame-method {DatabaseConnector}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Copy data frames to database tables</h2>
+
+<h3>Description</h3>
+
+<p>Writes, overwrites or appends a data frame to a database table, optionally
+converting row names to a column and specifying SQL data types for fields.
+New code should prefer <code><a href="../../DBI/html/dbCreateTable.html">dbCreateTable()</a></code> and <code><a href="../../DBI/html/dbAppendTable.html">dbAppendTable()</a></code>.
+</p>
+
+
+
+<h3>Usage</h3>
+
+<pre>
+## S4 method for signature 'DatabaseConnectorConnection,character,data.frame'
+dbWriteTable(
+  conn,
+  name,
+  value,
+  overwrite = FALSE,
+  append = FALSE,
+  temporary = FALSE,
+  oracleTempSchema = NULL,
+  ...
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>conn</code></td>
+<td>
+<p>A <a href="../../DBI/html/DBIConnection-class.html">DBIConnection</a> object, as returned by
+<code><a href="../../DBI/html/dbConnect.html">dbConnect()</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>A character string specifying the unquoted DBMS table name,
+or the result of a call to <code><a href="../../DBI/html/dbQuoteIdentifier.html">dbQuoteIdentifier()</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>value</code></td>
+<td>
+<p>a <a href="../../base/html/data.frame.html">data.frame</a> (or coercible to data.frame).</p>
+</td></tr>
+<tr valign="top"><td><code>overwrite</code></td>
+<td>
+<p>Overwrite an existing table (if exists)?</p>
+</td></tr>
+<tr valign="top"><td><code>append</code></td>
+<td>
+<p>Append to existing table?</p>
+</td></tr>
+<tr valign="top"><td><code>temporary</code></td>
+<td>
+<p>Should the table created as a temp table?</p>
+</td></tr>
+<tr valign="top"><td><code>oracleTempSchema</code></td>
+<td>
+<p>Specifically for Oracle, a schema with write privileges where temp tables
+can be created.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Other parameters passed on to methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p><code>dbWriteTable()</code> returns <code>TRUE</code>, invisibly.
+If the table exists, and both <code>append</code> and <code>overwrite</code> arguments are unset,
+or <code>append = TRUE</code> and the data frame with the new data has different
+column names,
+an error is raised; the remote table remains unchanged.
+</p>
+<p>An error is raised when calling this method for a closed
+or invalid connection.
+An error is also raised
+if <code>name</code> cannot be processed with <code><a href="../../DBI/html/dbQuoteIdentifier.html">dbQuoteIdentifier()</a></code>
+or if this results in a non-scalar.
+Invalid values for the additional arguments <code>row.names</code>,
+<code>overwrite</code>, <code>append</code>, <code>field.types</code>, and <code>temporary</code>
+(non-scalars,
+unsupported data types,
+<code>NA</code>,
+incompatible values,
+duplicate
+or missing names,
+incompatible columns)
+also raise an error.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>Other DBIConnection generics: 
+<code><a href="../../DBI/html/DBIConnection-class.html">DBIConnection-class</a></code>,
+<code><a href="../../DBI/html/dbAppendTable.html">dbAppendTable</a>()</code>,
+<code><a href="../../DBI/html/dbCreateTable.html">dbCreateTable</a>()</code>,
+<code><a href="../../DBI/html/dbDataType.html">dbDataType</a>()</code>,
+<code><a href="../../DBI/html/dbDisconnect.html">dbDisconnect</a>()</code>,
+<code><a href="../../DBI/html/dbExecute.html">dbExecute</a>()</code>,
+<code><a href="../../DBI/html/dbExistsTable.html">dbExistsTable</a>()</code>,
+<code><a href="../../DBI/html/dbGetException.html">dbGetException</a>()</code>,
+<code><a href="../../DBI/html/dbGetInfo.html">dbGetInfo</a>()</code>,
+<code><a href="../../DBI/html/dbGetQuery.html">dbGetQuery</a>()</code>,
+<code><a href="../../DBI/html/dbIsReadOnly.html">dbIsReadOnly</a>()</code>,
+<code><a href="../../DBI/html/dbIsValid.html">dbIsValid</a>()</code>,
+<code><a href="../../DBI/html/dbListFields.html">dbListFields</a>()</code>,
+<code><a href="../../DBI/html/dbListObjects.html">dbListObjects</a>()</code>,
+<code><a href="../../DBI/html/dbListResults.html">dbListResults</a>()</code>,
+<code><a href="../../DBI/html/dbListTables.html">dbListTables</a>()</code>,
+<code><a href="../../DBI/html/dbReadTable.html">dbReadTable</a>()</code>,
+<code><a href="../../DBI/html/dbRemoveTable.html">dbRemoveTable</a>()</code>,
+<code><a href="../../DBI/html/dbSendQuery.html">dbSendQuery</a>()</code>,
+<code><a href="../../DBI/html/dbSendStatement.html">dbSendStatement</a>()</code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>DatabaseConnector</em> version 5.0.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

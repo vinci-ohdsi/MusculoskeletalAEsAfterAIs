@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: The Andromeda class</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for Andromeda-class {Andromeda}"><tr><td>Andromeda-class {Andromeda}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>The Andromeda class</h2>
+
+<h3>Description</h3>
+
+<p>The <code>Andromeda</code> class is an S4 object.
+</p>
+<p>This class provides the ability to work with data objects in R that are too large to fit in memory. Instead,
+these objects are stored on disk. This is slower than working from memory, but may be the only viable option.
+</p>
+<p>Show the names of the tables in an Andromeda object.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+## S4 method for signature 'Andromeda'
+show(object)
+
+## S4 method for signature 'Andromeda'
+x$name
+
+## S4 replacement method for signature 'Andromeda'
+x$name &lt;- value
+
+## S4 replacement method for signature 'Andromeda'
+x[[i]] &lt;- value
+
+## S4 method for signature 'Andromeda'
+x[[i]]
+
+## S4 method for signature 'Andromeda'
+names(x)
+
+## S4 method for signature 'Andromeda'
+length(x)
+
+## S4 method for signature 'Andromeda'
+close(con, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>object</code></td>
+<td>
+<p>An <code><a href="Andromeda-class.html">Andromeda</a></code> object.</p>
+</td></tr>
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>An <code><a href="Andromeda-class.html">Andromeda</a></code> object.</p>
+</td></tr>
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>The name of a table in the <code><a href="Andromeda-class.html">Andromeda</a></code> object.</p>
+</td></tr>
+<tr valign="top"><td><code>value</code></td>
+<td>
+<p>A data frame, <code><a href="Andromeda-class.html">Andromeda</a></code> table, or other 'DBI' table.</p>
+</td></tr>
+<tr valign="top"><td><code>i</code></td>
+<td>
+<p>The name of a table in the <code><a href="Andromeda-class.html">Andromeda</a></code> object.</p>
+</td></tr>
+<tr valign="top"><td><code>con</code></td>
+<td>
+<p>An <code><a href="Andromeda-class.html">Andromeda</a></code> object.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Included for compatibility with generic <code>close()</code> method.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A vector of names.
+</p>
+
+
+<h3>Tables</h3>
+
+<p>An <code>Andromeda</code> object has zero, one or more tables. The list of table names can be retrieved using the <code><a href="../../base/html/names.html">names()</a></code>
+method. Tables can be accessed using the dollar sign syntax, e.g. <code>andromeda$myTable</code>, or double-square-bracket
+syntax, e.g. <code>andromeda[["myTable"]]</code>
+</p>
+
+
+<h3>Permanence</h3>
+
+<p>To mimic the behavior of in-memory objects, when working with data in <code>Andromeda</code> the data is stored in a
+temporary location on the disk. You can modify the data as you can see fit, and when needed can save the data
+to a permanent location. Later this data can be loaded to a temporary location again and be read and modified,
+while keeping the saved data as is.
+</p>
+
+
+<h3>Inheritance</h3>
+
+<p>The <code>Andromeda</code> inherits directly from <code>SQLiteConnection.</code> As such, it can be used as if it is a <code>SQLiteConnection</code>.
+<code><a href="../../RSQLite/html/SQLite.html">RSQLite</a></code> is an R wrapper around 'SQLite', a low-weight but very powerful single-user SQL database that can run
+from a single file on the local file system.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="andromeda_constructor.html">andromeda()</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+andr &lt;- andromeda(cars = cars, iris = iris)
+
+names(andr)
+# [1] 'cars' 'iris'
+
+close(andr)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Andromeda</em> version 0.4.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

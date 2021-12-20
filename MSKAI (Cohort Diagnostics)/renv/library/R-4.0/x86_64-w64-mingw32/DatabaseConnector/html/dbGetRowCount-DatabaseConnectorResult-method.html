@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: The number of rows fetched so far</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for dbGetRowCount,DatabaseConnectorResult-method {DatabaseConnector}"><tr><td>dbGetRowCount,DatabaseConnectorResult-method {DatabaseConnector}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>The number of rows fetched so far</h2>
+
+<h3>Description</h3>
+
+<p>Returns the total number of rows actually fetched with calls to <code><a href="../../DBI/html/dbFetch.html">dbFetch()</a></code>
+for this result set.
+</p>
+
+
+
+<h3>Usage</h3>
+
+<pre>
+## S4 method for signature 'DatabaseConnectorResult'
+dbGetRowCount(res, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>res</code></td>
+<td>
+<p>An object inheriting from <a href="../../DBI/html/DBIResult-class.html">DBIResult</a>.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Other arguments passed on to methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p><code>dbGetRowCount()</code> returns a scalar number (integer or numeric),
+the number of rows fetched so far.
+After calling <code><a href="../../DBI/html/dbSendQuery.html">dbSendQuery()</a></code>,
+the row count is initially zero.
+After a call to <code><a href="../../DBI/html/dbFetch.html">dbFetch()</a></code> without limit,
+the row count matches the total number of rows returned.
+Fetching a limited number of rows
+increases the number of rows by the number of rows returned,
+even if fetching past the end of the result set.
+For queries with an empty result set,
+zero is returned
+even after fetching.
+For data manipulation statements issued with
+<code><a href="../../DBI/html/dbSendStatement.html">dbSendStatement()</a></code>,
+zero is returned before
+and after calling <code>dbFetch()</code>.
+Attempting to get the row count for a result set cleared with
+<code><a href="../../DBI/html/dbClearResult.html">dbClearResult()</a></code> gives an error.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>Other DBIResult generics: 
+<code><a href="../../DBI/html/DBIResult-class.html">DBIResult-class</a></code>,
+<code><a href="../../DBI/html/dbBind.html">dbBind</a>()</code>,
+<code><a href="../../DBI/html/dbClearResult.html">dbClearResult</a>()</code>,
+<code><a href="../../DBI/html/dbColumnInfo.html">dbColumnInfo</a>()</code>,
+<code><a href="../../DBI/html/dbFetch.html">dbFetch</a>()</code>,
+<code><a href="../../DBI/html/dbGetInfo.html">dbGetInfo</a>()</code>,
+<code><a href="../../DBI/html/dbGetRowsAffected.html">dbGetRowsAffected</a>()</code>,
+<code><a href="../../DBI/html/dbGetStatement.html">dbGetStatement</a>()</code>,
+<code><a href="../../DBI/html/dbHasCompleted.html">dbHasCompleted</a>()</code>,
+<code><a href="../../DBI/html/dbIsReadOnly.html">dbIsReadOnly</a>()</code>,
+<code><a href="../../DBI/html/dbIsValid.html">dbIsValid</a>()</code>,
+<code><a href="../../DBI/html/dbQuoteIdentifier.html">dbQuoteIdentifier</a>()</code>,
+<code><a href="../../DBI/html/dbQuoteLiteral.html">dbQuoteLiteral</a>()</code>,
+<code><a href="../../DBI/html/dbQuoteString.html">dbQuoteString</a>()</code>,
+<code><a href="../../DBI/html/dbUnquoteIdentifier.html">dbUnquoteIdentifier</a>()</code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>DatabaseConnector</em> version 5.0.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

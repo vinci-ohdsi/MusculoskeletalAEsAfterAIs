@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Save Andromeda to file</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for saveAndromeda {Andromeda}"><tr><td>saveAndromeda {Andromeda}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Save Andromeda to file</h2>
+
+<h3>Description</h3>
+
+<p>Saves the <code><a href="Andromeda-class.html">Andromeda</a></code> object in a zipped file. Note that by default the <code><a href="Andromeda-class.html">Andromeda</a></code> object is
+automatically closed by saving it to disk. This is due to a limitation of the underlying technology
+('RSQLite'). To keep the connection open, use <code>maintainConnection = TRUE</code>. This will first
+create a temporary copy of the <code><a href="Andromeda-class.html">Andromeda</a></code> object. Note that this can be substantially slower.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+saveAndromeda(
+  andromeda,
+  fileName,
+  maintainConnection = FALSE,
+  overwrite = TRUE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>andromeda</code></td>
+<td>
+<p>An object of class <code><a href="Andromeda-class.html">Andromeda</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>fileName</code></td>
+<td>
+<p>The path where the object will be written.</p>
+</td></tr>
+<tr valign="top"><td><code>maintainConnection</code></td>
+<td>
+<p>Should the connection be maintained after saving? If <code>FALSE</code>, the
+Andromeda object will be invalid after this operation, but saving will
+be faster.</p>
+</td></tr>
+<tr valign="top"><td><code>overwrite</code></td>
+<td>
+<p>If the file exists, should it be overwritten? If <code>FALSE</code> and the file
+exists, an error will be thrown.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>Returns no value. Executed for the side-effect of saving the object to disk.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="loadAndromeda.html">loadAndromeda</a></code>
+</p>
+<p><code><a href="loadAndromeda.html">loadAndromeda()</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+andr &lt;- andromeda(cars = cars)
+
+# For this example we'll use a temporary file location:
+fileName &lt;- tempfile()
+
+saveAndromeda(andr, fileName)
+
+# Cleaning up the file used in this example:
+unlink(fileName)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Andromeda</em> version 0.4.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Execute an update statement, query number of rows affected,...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for dbExecute,DatabaseConnectorConnection,character-method {DatabaseConnector}"><tr><td>dbExecute,DatabaseConnectorConnection,character-method {DatabaseConnector}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Execute an update statement, query number of rows affected, and then close result set</h2>
+
+<h3>Description</h3>
+
+<p>Executes a statement and returns the number of rows affected.
+<code>dbExecute()</code> comes with a default implementation
+(which should work with most backends) that calls
+<code><a href="../../DBI/html/dbSendStatement.html">dbSendStatement()</a></code>, then <code><a href="../../DBI/html/dbGetRowsAffected.html">dbGetRowsAffected()</a></code>, ensuring that
+the result is always free-d by <code><a href="../../DBI/html/dbClearResult.html">dbClearResult()</a></code>.
+</p>
+
+
+
+<h3>Usage</h3>
+
+<pre>
+## S4 method for signature 'DatabaseConnectorConnection,character'
+dbExecute(conn, statement, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>conn</code></td>
+<td>
+<p>A <a href="../../DBI/html/DBIConnection-class.html">DBIConnection</a> object, as returned by
+<code><a href="../../DBI/html/dbConnect.html">dbConnect()</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>statement</code></td>
+<td>
+<p>a character string containing SQL.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Other parameters passed on to methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>You can also use <code>dbExecute()</code> to call a stored procedure
+that performs data manipulation or other actions that do not return a result set.
+To execute a stored procedure that returns a result set use <code><a href="../../DBI/html/dbGetQuery.html">dbGetQuery()</a></code> instead.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>dbExecute()</code> always returns a
+scalar
+numeric
+that specifies the number of rows affected
+by the statement.
+An error is raised when issuing a statement over a closed
+or invalid connection,
+if the syntax of the statement is invalid,
+or if the statement is not a non-<code>NA</code> string.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>For queries: <code><a href="../../DBI/html/dbSendQuery.html">dbSendQuery()</a></code> and <code><a href="../../DBI/html/dbGetQuery.html">dbGetQuery()</a></code>.
+</p>
+<p>Other DBIConnection generics: 
+<code><a href="../../DBI/html/DBIConnection-class.html">DBIConnection-class</a></code>,
+<code><a href="../../DBI/html/dbAppendTable.html">dbAppendTable</a>()</code>,
+<code><a href="../../DBI/html/dbCreateTable.html">dbCreateTable</a>()</code>,
+<code><a href="../../DBI/html/dbDataType.html">dbDataType</a>()</code>,
+<code><a href="../../DBI/html/dbDisconnect.html">dbDisconnect</a>()</code>,
+<code><a href="../../DBI/html/dbExistsTable.html">dbExistsTable</a>()</code>,
+<code><a href="../../DBI/html/dbGetException.html">dbGetException</a>()</code>,
+<code><a href="../../DBI/html/dbGetInfo.html">dbGetInfo</a>()</code>,
+<code><a href="../../DBI/html/dbGetQuery.html">dbGetQuery</a>()</code>,
+<code><a href="../../DBI/html/dbIsReadOnly.html">dbIsReadOnly</a>()</code>,
+<code><a href="../../DBI/html/dbIsValid.html">dbIsValid</a>()</code>,
+<code><a href="../../DBI/html/dbListFields.html">dbListFields</a>()</code>,
+<code><a href="../../DBI/html/dbListObjects.html">dbListObjects</a>()</code>,
+<code><a href="../../DBI/html/dbListResults.html">dbListResults</a>()</code>,
+<code><a href="../../DBI/html/dbListTables.html">dbListTables</a>()</code>,
+<code><a href="../../DBI/html/dbReadTable.html">dbReadTable</a>()</code>,
+<code><a href="../../DBI/html/dbRemoveTable.html">dbRemoveTable</a>()</code>,
+<code><a href="../../DBI/html/dbSendQuery.html">dbSendQuery</a>()</code>,
+<code><a href="../../DBI/html/dbSendStatement.html">dbSendStatement</a>()</code>,
+<code><a href="../../DBI/html/dbWriteTable.html">dbWriteTable</a>()</code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>DatabaseConnector</em> version 5.0.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

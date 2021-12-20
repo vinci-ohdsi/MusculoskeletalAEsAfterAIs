@@ -10,6 +10,7 @@ Imports: CohortDiagnostics
 Suggests: knitr, rmarkdown, ROhdsiWebApi, OhdsiRTools
 License: Apache License 2.0
 VignetteBuilder: knitr
+LazyData: TRUE
 RoxygenNote: 7.1.2
 NeedsCompilation: no
-Packaged: 2021-12-03 19:44:35 UTC; pateb11
+Packaged: 2021-12-20 18:22:04 UTC; simonk
