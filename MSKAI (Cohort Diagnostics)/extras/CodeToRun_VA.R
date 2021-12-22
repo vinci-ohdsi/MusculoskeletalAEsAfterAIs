@@ -31,14 +31,14 @@ library(MSKAI)
 
 # Specify an andromedaTempFolder -----
 # this is where temporary objects will be created
-options(andromedaTempFolder = "D:/OHDSI/KS/")
+options(andromedaTempFolder = "D:/OHDSI/KS/MSKAI/")
 
 # Maximum number of cores to be used ----
 maxCores <- detectCores()
 
 # Details for connecting to the server:
 dbms = "sql server"#Sys.getenv("DBMS")
-server = "vhacdwdwhdbs101"#Sys.getenv("DB_SERVER")
+server = "vhacdwdwhdbs102"#Sys.getenv("DB_SERVER")
 pathToDriver <- "d:/JDBC/sqljdbc_6.0/enu/jre8"#if (Sys.getenv("PATH_TO_DRIVER") == "") NULL else Sys.getenv("PATH_TO_DRIVER")
 
 # Details for connecting to your server  ----
