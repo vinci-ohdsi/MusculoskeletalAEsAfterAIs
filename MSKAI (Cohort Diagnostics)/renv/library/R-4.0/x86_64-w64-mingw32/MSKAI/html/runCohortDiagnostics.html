@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Execute the cohort diagnostics</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for runCohortDiagnostics {MSKAI}"><tr><td>runCohortDiagnostics {MSKAI}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Execute the cohort diagnostics</h2>
+
+<h3>Description</h3>
+
+<p>Execute the cohort diagnostics
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+runCohortDiagnostics(
+  connectionDetails,
+  cdmDatabaseSchema,
+  cohortDatabaseSchema = cdmDatabaseSchema,
+  cohortTable = "cohort",
+  oracleTempSchema = cohortDatabaseSchema,
+  outputFolder,
+  databaseId = "Unknown",
+  databaseName = "Unknown",
+  databaseDescription = "Unknown",
+  createCohorts = TRUE,
+  runInclusionStatistics = TRUE,
+  runIncludedSourceConcepts = TRUE,
+  runOrphanConcepts = TRUE,
+  runTimeDistributions = TRUE,
+  runBreakdownIndexEvents = TRUE,
+  runIncidenceRates = TRUE,
+  runCohortOverlap = TRUE,
+  runCohortCharacterization = TRUE,
+  runTemporalCohortCharacterization = TRUE,
+  minCellCount = 5
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>connectionDetails</code></td>
+<td>
+<p>An object of type <code>connectionDetails</code> as created using the
+<code><a href="../../DatabaseConnector/html/createConnectionDetails.html">createConnectionDetails</a></code> function in the
+DatabaseConnector package.</p>
+</td></tr>
+<tr valign="top"><td><code>cdmDatabaseSchema</code></td>
+<td>
+<p>Schema name where your patient-level data in OMOP CDM format resides.
+Note that for SQL Server, this should include both the database and
+schema name, for example 'cdm_data.dbo'.</p>
+</td></tr>
+<tr valign="top"><td><code>cohortDatabaseSchema</code></td>
+<td>
+<p>Schema name where intermediate data can be stored. You will need to have
+write priviliges in this schema. Note that for SQL Server, this should
+include both the database and schema name, for example 'cdm_data.dbo'.</p>
+</td></tr>
+<tr valign="top"><td><code>cohortTable</code></td>
+<td>
+<p>The name of the table that will be created in the work database schema.
+This table will hold the exposure and outcome cohorts used in this
+study.</p>
+</td></tr>
+<tr valign="top"><td><code>oracleTempSchema</code></td>
+<td>
+<p>Should be used in Oracle to specify a schema where the user has write
+priviliges for storing temporary tables.</p>
+</td></tr>
+<tr valign="top"><td><code>outputFolder</code></td>
+<td>
+<p>Name of local folder to place results; make sure to use forward slashes
+(/). Do not use a folder on a network drive since this greatly impacts
+performance.</p>
+</td></tr>
+<tr valign="top"><td><code>databaseId</code></td>
+<td>
+<p>A short string for identifying the database (e.g.
+'Synpuf').</p>
+</td></tr>
+<tr valign="top"><td><code>databaseName</code></td>
+<td>
+<p>The full name of the database (e.g. 'Medicare Claims
+Synthetic Public Use Files (SynPUFs)').</p>
+</td></tr>
+<tr valign="top"><td><code>databaseDescription</code></td>
+<td>
+<p>A short description (several sentences) of the database.</p>
+</td></tr>
+<tr valign="top"><td><code>createCohorts</code></td>
+<td>
+<p>Create the cohortTable table with the exposure and outcome cohorts?</p>
+</td></tr>
+<tr valign="top"><td><code>runInclusionStatistics</code></td>
+<td>
+<p>Generate and export statistic on the cohort incusion rules?</p>
+</td></tr>
+<tr valign="top"><td><code>runIncludedSourceConcepts</code></td>
+<td>
+<p>Generate and export the source concepts included in the cohorts?</p>
+</td></tr>
+<tr valign="top"><td><code>runOrphanConcepts</code></td>
+<td>
+<p>Generate and export potential orphan concepts?</p>
+</td></tr>
+<tr valign="top"><td><code>runTimeDistributions</code></td>
+<td>
+<p>Generate and export cohort time distributions?</p>
+</td></tr>
+<tr valign="top"><td><code>runBreakdownIndexEvents</code></td>
+<td>
+<p>Generate and export the breakdown of index events?</p>
+</td></tr>
+<tr valign="top"><td><code>runIncidenceRates</code></td>
+<td>
+<p>Generate and export the cohort incidence rates?</p>
+</td></tr>
+<tr valign="top"><td><code>runCohortOverlap</code></td>
+<td>
+<p>Generate and export the cohort overlap?</p>
+</td></tr>
+<tr valign="top"><td><code>runCohortCharacterization</code></td>
+<td>
+<p>Generate and export the cohort characterization?</p>
+</td></tr>
+<tr valign="top"><td><code>runTemporalCohortCharacterization</code></td>
+<td>
+<p>Generate and export the temporal cohort characterization?</p>
+</td></tr>
+<tr valign="top"><td><code>minCellCount</code></td>
+<td>
+<p>The minimum number of subjects contributing to a count before it can be included 
+in packaged results.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function executes the cohort diagnostics.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>MSKAI</em> version 0.0.1 <a href="00Index.html">Index</a>]</div>
+</body></html>
